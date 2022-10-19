@@ -1,0 +1,24 @@
+# apiVersion: argoproj.io/v1alpha1
+# kind: ApplicationSet
+# metadata:
+#   name: cluster-resources
+# spec:
+#   generators:
+#   - git:
+#       repoURL: https://github.com/kubecon-us-2022-argo/control-plane
+#       revision: HEAD
+#       directories:
+#       - path: clusters/*
+#   template:
+#     metadata:
+#       name: 'cluster-{{path.basename}}'
+#     spec:
+#       project: default
+#       source:
+#         repoURL: https://github.com/kubecon-us-2022-argo/control-plane
+#         targetRevision: HEAD
+#         path: '{{path}}'
+#       destination:
+#         name: '{{path.basename}}'
+#       syncPolicy:
+#         automated: {}

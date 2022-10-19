@@ -1,0 +1,16 @@
+# apiVersion: argoproj.io/v1alpha1
+# kind: AppProject
+# metadata:
+#   name: team-a
+# spec:
+#   sourceRepos:
+#     - https://github.com/argoproj/argocd-example-apps
+#   destinations:
+#     - namespace: team-a-*
+#       server: https://kubernetes.default.svc
+#   roles:
+#   - name: admin
+#     policies:
+#     - p, proj:team-a:admin, *, *, team-a/*, allow
+#     groups:
+#     - AMatyushentsev@gmail.com
